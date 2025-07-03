@@ -4,7 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"wordcount/pkg"
+
+	"github.com/be-nice/wordcounter/pkg"
 )
 
 func isInputFromPipe() bool {
