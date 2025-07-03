@@ -20,9 +20,9 @@ go install github.com/be-nice/wordcounter@latest
 ### Usage
 
 ```bash
-wordcount file1.txt ./relative/file2
+wordcounter file1.txt ./relative/file2
 
 or
 
-find . -name "*.go" | wordcount
+find . -name "*.go" | wordcounter
 ```
