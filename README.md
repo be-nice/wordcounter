@@ -5,11 +5,21 @@ Accepts either filepaths in args or piped input of filepaths ex: output from <-f
 
 **Outputs total line, word, and bytecount**
 
-## Usage
+## Instructions
+
+### Requierments
+
+**Go 1.16 or newer**
+
+### Installing
 
 ```bash
-go install github.com/be-nice/wordcounter
+go install github.com/be-nice/wordcounter@latest
+```
 
+### Usage
+
+```bash
 wordcount file1.txt ./relative/file2
 
 or
