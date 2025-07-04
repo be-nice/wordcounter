@@ -7,7 +7,13 @@ import (
 	"strings"
 )
 
-func Counter(w, b, l *int, path string) error {
+type ResultCounts struct {
+	WordCount int
+	LineCount int
+	ByteCount int
+}
+
+func Counter(path string, res chan ResultCounts) error {
 	file, err := os.Open(path)
 	if err != nil {
 		errors.New("Error opening file")
@@ -15,12 +21,15 @@ func Counter(w, b, l *int, path string) error {
 	}
 	defer file.Close()
 
+	var counts ResultCounts
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		*l++
-		*b += len(scanner.Bytes()) + 1
-		*w += len(strings.Fields(scanner.Text()))
+		counts.WordCount += len(strings.Fields(scanner.Text()))
+		counts.LineCount++
+		counts.ByteCount += len(scanner.Bytes()) + 1
+
 	}
 
+	res <- counts
 	return nil
 }
